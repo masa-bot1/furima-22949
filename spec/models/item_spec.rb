@@ -47,9 +47,9 @@ RSpec.describe Item, type: :model do
     end
 
     it 'regionを選択していないと保存できないこと' do
-      @item.region_id = 1
+      @item.region_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include('Region must be other than 1')
+      expect(@item.errors.full_messages).to include('Region must be other than 0')
     end
 
     it 'delivery_daysを選択していないと保存できないこと' do

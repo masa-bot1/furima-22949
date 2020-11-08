@@ -21,7 +21,8 @@ class Item < ApplicationRecord
     validates :category_id
     validates :status_id
     validates :postage_id
-    validates :region_id
     validates :delivery_days_id
   end
+
+  validates :region_id, numericality: { other_than: 0 }
 end
