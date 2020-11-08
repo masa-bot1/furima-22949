@@ -28,7 +28,7 @@ RSpec.describe User, type: :model do
       it 'emailに@が含まれていなければ登録できない' do
         @user.email = 'aaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
 
       it '重複したemailが存在する場合登録できない' do
@@ -66,7 +66,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
 
-      it 'passwordが全角では登録できない' do 
+      it 'passwordが全角では登録できない' do
         @user.password = '１２３４５'
         @user.password_confirmation = '１２３４５'
         @user.valid?
