@@ -52,10 +52,10 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Region must be other than 0')
     end
 
-    it 'delivery_daysを選択していないと保存できないこと' do
-      @item.delivery_days_id = 1
+    it 'delivery_dayを選択していないと保存できないこと' do
+      @item.delivery_day_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Delivery days must be other than 1')
+      expect(@item.errors.full_messages).to include('Delivery day must be other than 1')
     end
 
     it 'priceが空だと保存できないこと' do
