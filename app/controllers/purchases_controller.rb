@@ -8,7 +8,7 @@ class PurchasesController < ApplicationController
     @user_purchase = UserPurchase.new(purchase_params)
     @item = Item.find(params[:item_id])
     if @user_purchase.valid?
-
+      Payjp.api_key = "sk_test_9a30a689fbe09ba235b58fab"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
       Payjp::Charge.create(
         amount: @item.price, # 商品の値段
         card: purchase_params[:token],    # カードトークン
