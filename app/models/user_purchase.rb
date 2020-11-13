@@ -7,6 +7,7 @@ class UserPurchase
     validates :city
     validates :street_number
     validates :phone_number, format: {with: /\A\d{11}\z/}
+    validates :token
   end
   validates :prefecture_id, numericality: { other_than: 0}
 
