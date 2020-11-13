@@ -19,13 +19,13 @@ RSpec.describe UserPurchase, type: :model do
     it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
       @user_purchase.postal_code = '1234567'
       @user_purchase.valid?
-      expect(@user_purchase.errors.full_messages).to include("Postal code is invalid")
+      expect(@user_purchase.errors.full_messages).to include('Postal code is invalid')
     end
 
     it 'prefectureを選択していないと保存できないこと' do
       @user_purchase.prefecture_id = 0
       @user_purchase.valid?
-      expect(@user_purchase.errors.full_messages).to include("Prefecture must be other than 0")
+      expect(@user_purchase.errors.full_messages).to include('Prefecture must be other than 0')
     end
 
     it 'cityが空だと保存できないこと' do
@@ -54,20 +54,19 @@ RSpec.describe UserPurchase, type: :model do
     it 'phone_numberにはハイフンが含まれていると保存できないこと' do
       @user_purchase.phone_number = '090-1234-5678'
       @user_purchase.valid?
-      expect(@user_purchase.errors.full_messages).to include("Phone number is invalid")
+      expect(@user_purchase.errors.full_messages).to include('Phone number is invalid')
     end
 
     it 'phone_numberが12桁以上だと保存できないこと' do
       @user_purchase.phone_number = '090123456789'
       @user_purchase.valid?
-      expect(@user_purchase.errors.full_messages).to include("Phone number is invalid")
+      expect(@user_purchase.errors.full_messages).to include('Phone number is invalid')
     end
 
-    it "tokenが空では登録できないこと" do
+    it 'tokenが空では登録できないこと' do
       @user_purchase.token = nil
       @user_purchase.valid?
       expect(@user_purchase.errors.full_messages).to include("Token can't be blank")
     end
-
   end
 end
